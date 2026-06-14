@@ -7,6 +7,9 @@ const Contact = () => {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
+  // Spaced format for display consistency
+  const formattedPhone = '+91 62616 52446';
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -31,25 +34,27 @@ const Contact = () => {
       }}>
         {/* Contact Info Card */}
         <div className="glass-panel" style={{
-          padding: '30px',
+          padding: '24px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
           gap: '24px',
+          backgroundColor: 'var(--bg-secondary)',
+          border: '1px solid var(--border-color)',
         }}>
           <div>
             <h3 style={{
-              fontSize: '1.5rem',
+              fontSize: '1.2rem',
               fontWeight: '700',
-              marginBottom: '16px',
+              marginBottom: '10px',
               color: 'var(--text-primary)',
             }}>
               Let's Connect
             </h3>
             <p style={{
               color: 'var(--text-secondary)',
-              fontSize: '1rem',
-              lineHeight: '1.6',
+              fontSize: '0.88rem',
+              lineHeight: '1.5',
             }}>
               I am open to internship opportunities, full-time roles, and collaboration on interesting web development projects. Feel free to reach out!
             </p>
@@ -58,27 +63,28 @@ const Contact = () => {
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '20px',
+            gap: '16px',
           }}>
             {/* Phone */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={{
-                backgroundColor: 'var(--primary-glow)',
-                width: '44px',
-                height: '44px',
-                borderRadius: '50%',
+                backgroundColor: 'var(--primary-light)',
+                width: '36px',
+                height: '36px',
+                borderRadius: '4px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'var(--primary)',
+                border: '1px solid var(--border-color)',
                 flexShrink: 0,
               }}>
-                <Phone size={20} />
+                <Phone size={16} />
               </div>
               <div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Call / WhatsApp</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Call / WhatsApp</div>
                 <a href={`tel:${phone.replace(/\s+/g, '')}`} style={{
-                  fontSize: '1rem',
+                  fontSize: '0.9rem',
                   fontWeight: '600',
                   color: 'var(--text-primary)',
                   transition: 'var(--transition-smooth)',
@@ -86,30 +92,31 @@ const Contact = () => {
                 onMouseEnter={(e) => e.target.style.color = 'var(--primary)'}
                 onMouseLeave={(e) => e.target.style.color = 'var(--text-primary)'}
                 >
-                  {phone}
+                  {formattedPhone}
                 </a>
               </div>
             </div>
 
             {/* Email */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={{
-                backgroundColor: 'var(--primary-glow)',
-                width: '44px',
-                height: '44px',
-                borderRadius: '50%',
+                backgroundColor: 'var(--primary-light)',
+                width: '36px',
+                height: '36px',
+                borderRadius: '4px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'var(--primary)',
+                border: '1px solid var(--border-color)',
                 flexShrink: 0,
               }}>
-                <Mail size={20} />
+                <Mail size={16} />
               </div>
               <div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Email Address</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Email Address</div>
                 <a href={`mailto:${email}`} style={{
-                  fontSize: '1rem',
+                  fontSize: '0.9rem',
                   fontWeight: '600',
                   color: 'var(--text-primary)',
                   transition: 'var(--transition-smooth)',
@@ -123,26 +130,28 @@ const Contact = () => {
             </div>
 
             {/* Location */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={{
-                backgroundColor: 'var(--primary-glow)',
-                width: '44px',
-                height: '44px',
-                borderRadius: '50%',
+                backgroundColor: 'var(--primary-light)',
+                width: '36px',
+                height: '36px',
+                borderRadius: '4px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'var(--primary)',
+                border: '1px solid var(--border-color)',
                 flexShrink: 0,
               }}>
-                <MapPin size={20} />
+                <MapPin size={16} />
               </div>
               <div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Location</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Location</div>
                 <div style={{
-                  fontSize: '1rem',
+                  fontSize: '0.9rem',
                   fontWeight: '600',
                   color: 'var(--text-primary)',
+                  lineHeight: '1.3',
                 }}>
                   {location}
                 </div>
@@ -153,7 +162,9 @@ const Contact = () => {
 
         {/* Contact Form */}
         <div className="glass-panel" style={{
-          padding: '30px',
+          padding: '24px',
+          backgroundColor: 'var(--bg-secondary)',
+          border: '1px solid var(--border-color)',
         }}>
           {submitted ? (
             <div style={{
@@ -162,22 +173,22 @@ const Contact = () => {
               alignItems: 'center',
               justifyContent: 'center',
               height: '100%',
-              minHeight: '280px',
+              minHeight: '220px',
               textAlign: 'center',
-              gap: '16px',
+              gap: '12px',
             }}>
-              <CheckCircle size={60} style={{ color: '#27c93f' }} />
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--text-primary)' }}>Message Sent!</h3>
-              <p style={{ color: 'var(--text-secondary)' }}>Thank you for reaching out, Sumit will get back to you shortly.</p>
+              <CheckCircle size={48} style={{ color: 'var(--primary)' }} />
+              <h3 style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--text-primary)' }}>Message Sent!</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>Thank you for reaching out, Sumit will get back to you shortly.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '20px',
+              gap: '16px',
             }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label htmlFor="name" style={{ fontSize: '0.9rem', fontWeight: '600', color: 'var(--text-secondary)' }}>Name</label>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <label htmlFor="name" style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-secondary)' }}>Name</label>
                 <input 
                   type="text" 
                   id="name" 
@@ -186,11 +197,12 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   style={{
-                    padding: '12px 16px',
-                    borderRadius: '8px',
+                    padding: '8px 12px',
+                    borderRadius: '4px',
                     border: '1px solid var(--border-color)',
                     backgroundColor: 'var(--bg-primary)',
                     color: 'var(--text-primary)',
+                    fontSize: '0.88rem',
                     outline: 'none',
                     transition: 'var(--transition-smooth)',
                   }}
@@ -199,8 +211,8 @@ const Contact = () => {
                 />
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label htmlFor="email" style={{ fontSize: '0.9rem', fontWeight: '600', color: 'var(--text-secondary)' }}>Email</label>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <label htmlFor="email" style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-secondary)' }}>Email</label>
                 <input 
                   type="email" 
                   id="email" 
@@ -209,11 +221,12 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   style={{
-                    padding: '12px 16px',
-                    borderRadius: '8px',
+                    padding: '8px 12px',
+                    borderRadius: '4px',
                     border: '1px solid var(--border-color)',
                     backgroundColor: 'var(--bg-primary)',
                     color: 'var(--text-primary)',
+                    fontSize: '0.88rem',
                     outline: 'none',
                     transition: 'var(--transition-smooth)',
                   }}
@@ -222,8 +235,8 @@ const Contact = () => {
                 />
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label htmlFor="message" style={{ fontSize: '0.9rem', fontWeight: '600', color: 'var(--text-secondary)' }}>Message</label>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <label htmlFor="message" style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-secondary)' }}>Message</label>
                 <textarea 
                   id="message" 
                   name="message" 
@@ -232,11 +245,12 @@ const Contact = () => {
                   required
                   rows="4"
                   style={{
-                    padding: '12px 16px',
-                    borderRadius: '8px',
+                    padding: '8px 12px',
+                    borderRadius: '4px',
                     border: '1px solid var(--border-color)',
                     backgroundColor: 'var(--bg-primary)',
                     color: 'var(--text-primary)',
+                    fontSize: '0.88rem',
                     outline: 'none',
                     resize: 'none',
                     transition: 'var(--transition-smooth)',
@@ -248,9 +262,9 @@ const Contact = () => {
 
               <button type="submit" className="btn btn-primary" style={{
                 alignSelf: 'flex-start',
-                padding: '12px 30px',
+                padding: '8px 20px',
               }}>
-                Send Message <Send size={16} />
+                Send Message <Send size={14} />
               </button>
             </form>
           )}
@@ -261,7 +275,7 @@ const Contact = () => {
         @media (max-width: 768px) {
           #contact > div {
             grid-template-columns: 1fr !important;
-            gap: 24px !important;
+            gap: 20px !important;
           }
         }
       `}</style>
