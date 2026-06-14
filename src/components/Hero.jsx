@@ -13,7 +13,7 @@ const Hero = () => {
     }}>
       <div className="hero-grid" style={{
         display: 'grid',
-        gridTemplateColumns: '1.2fr 0.8fr',
+        gridTemplateColumns: '1.25fr 0.75fr',
         gap: '24px',
         width: '100%',
         alignItems: 'center',
@@ -21,17 +21,17 @@ const Hero = () => {
         {/* Left Column: Heading and Details */}
         <div>
           <h1 className="hero-name" style={{
-            fontSize: '2.25rem',
+            fontSize: '2.5rem',
             fontWeight: '800',
             lineHeight: '1.15',
             color: 'var(--text-primary)',
-            marginBottom: '8px',
+            marginBottom: '6px',
           }}>
             {name}
           </h1>
           
           <h2 className="hero-title" style={{
-            fontSize: '1.2rem',
+            fontSize: '1.25rem',
             fontWeight: '600',
             color: 'var(--primary)',
             marginBottom: '16px',
@@ -69,31 +69,63 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Vertically centered social list */}
+            {/* Styled social outline icons */}
             <div className="hero-socials" style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '12px',
+              gap: '8px',
             }}>
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer" style={{
-                color: 'var(--text-muted)',
-                transition: 'var(--transition-smooth)',
-                display: 'flex',
-              }}
-              onMouseEnter={(e) => e.target.style.color = 'var(--primary)'}
-              onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}
+              <a 
+                href={githubUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{
+                  color: 'var(--text-secondary)',
+                  border: '1px solid var(--border-color)',
+                  backgroundColor: 'var(--bg-secondary)',
+                  padding: '8px',
+                  borderRadius: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'var(--transition-smooth)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--primary)';
+                  e.currentTarget.style.color = 'var(--primary)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--border-color)';
+                  e.currentTarget.style.color = 'var(--text-secondary)';
+                }}
               >
-                <GithubIcon size={18} />
+                <GithubIcon size={16} />
               </a>
-              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" style={{
-                color: 'var(--text-muted)',
-                transition: 'var(--transition-smooth)',
-                display: 'flex',
-              }}
-              onMouseEnter={(e) => e.target.style.color = 'var(--primary)'}
-              onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}
+              <a 
+                href={linkedinUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{
+                  color: 'var(--text-secondary)',
+                  border: '1px solid var(--border-color)',
+                  backgroundColor: 'var(--bg-secondary)',
+                  padding: '8px',
+                  borderRadius: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'var(--transition-smooth)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--primary)';
+                  e.currentTarget.style.color = 'var(--primary)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--border-color)';
+                  e.currentTarget.style.color = 'var(--text-secondary)';
+                }}
               >
-                <LinkedinIcon size={18} />
+                <LinkedinIcon size={16} />
               </a>
             </div>
           </div>
@@ -144,11 +176,7 @@ const Hero = () => {
         @media (max-width: 800px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 20px !important;
-          }
-          .hero-socials {
-            border-left: none !important;
-            padding-left: 0 !important;
+            gap: 24px !important;
           }
         }
         @media (max-width: 576px) {
@@ -181,7 +209,6 @@ const Hero = () => {
           }
           .hero-socials {
             justify-content: center;
-            margin-top: 4px;
             width: 100%;
           }
         }

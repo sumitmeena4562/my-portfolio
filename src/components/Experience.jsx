@@ -21,7 +21,7 @@ const Experience = () => {
             style={{
               padding: '16px 20px',
               backgroundColor: 'var(--bg-secondary)',
-              border: '1px solid var(--border-color)',
+              border: '1px solid var(--border-color)', /* Removed left accent border */
             }}
           >
             {/* Header info */}

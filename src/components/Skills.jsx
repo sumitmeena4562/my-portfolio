@@ -13,6 +13,7 @@ const Skills = () => {
         display: 'grid',
         gridTemplateColumns: '1.2fr 0.8fr',
         gap: '24px',
+        alignItems: 'start',
       }}>
         {/* Left Side: Technical Skills Categories */}
         <div style={{
@@ -27,7 +28,7 @@ const Skills = () => {
               style={{
                 padding: '16px',
                 backgroundColor: 'var(--bg-secondary)',
-                border: '1px solid var(--border-color)',
+                border: '1px solid var(--border-color)', /* Removed left accent border */
               }}
             >
               <h3 style={{
@@ -69,13 +70,13 @@ const Skills = () => {
         <div className="glass-panel" style={{
           padding: '16px',
           backgroundColor: 'var(--bg-secondary)',
-          border: '1px solid var(--border-color)',
+          border: '1px solid var(--border-color)', /* Removed left accent border */
         }}>
           <h3 style={{
             fontSize: '0.95rem',
             fontWeight: '700',
             color: 'var(--text-primary)',
-            marginBottom: '10px',
+            marginBottom: '12px',
             borderBottom: '1px solid var(--border-color)',
             paddingBottom: '4px',
           }}>
@@ -83,10 +84,11 @@ const Skills = () => {
           </h3>
 
           <ul style={{
-            paddingLeft: '14px',
+            listStyle: 'none',
+            paddingLeft: 0,
             display: 'flex',
             flexDirection: 'column',
-            gap: '8px',
+            gap: '10px',
           }}>
             {certifications.map((cert, idx) => (
               <li 
@@ -95,9 +97,13 @@ const Skills = () => {
                   fontSize: '0.82rem',
                   color: 'var(--text-secondary)',
                   lineHeight: '1.4',
+                  display: 'flex',
+                  gap: '8px',
+                  alignItems: 'flex-start',
                 }}
               >
-                {cert}
+                <span style={{ color: 'var(--primary)', fontWeight: 'bold' }}>•</span>
+                <span>{cert}</span>
               </li>
             ))}
           </ul>
