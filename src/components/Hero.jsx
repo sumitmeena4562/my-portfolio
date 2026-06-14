@@ -1,3 +1,4 @@
+import React from 'react';
 import { Mail, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
 import { resumeData } from '../data/resumeData';
@@ -18,7 +19,7 @@ const Hero = () => {
         alignItems: 'center',
       }}>
         {/* Left Column: Heading and Details */}
-        <div>
+        <div className="hero-left-col">
           <h1 className="hero-name" style={{
             fontSize: '2.5rem',
             fontWeight: '800',
@@ -41,8 +42,8 @@ const Hero = () => {
           <p className="hero-desc" style={{
             fontSize: '0.92rem',
             color: 'var(--text-secondary)',
-            lineHeight: '1.5',
-            marginBottom: '20px',
+            lineHeight: '1.6',
+            marginBottom: '24px',
             maxWidth: '550px',
           }}>
             {aboutMe}
@@ -177,38 +178,47 @@ const Hero = () => {
             grid-template-columns: 1fr !important;
             gap: 24px !important;
           }
-        }
-        @media (max-width: 576px) {
+          .hero-left-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
           .hero-name {
-            font-size: 1.85rem !important;
+            font-size: 2.25rem !important;
             text-align: center;
+            margin-bottom: 8px !important;
           }
           .hero-title {
-            font-size: 1.05rem !important;
+            font-size: 1.15rem !important;
             text-align: center;
             margin-bottom: 12px !important;
           }
           .hero-desc {
             text-align: center;
-            margin-bottom: 16px !important;
+            margin-bottom: 20px !important;
+            line-height: 1.55 !important;
           }
           .hero-actions-container {
             flex-direction: column !important;
             align-items: center !important;
-            gap: 12px !important;
+            gap: 16px !important;
             width: 100%;
           }
           .hero-buttons {
             width: 100%;
             flex-direction: column !important;
-            gap: 8px !important;
+            align-items: center !important;
+            gap: 10px !important;
           }
           .hero-buttons a {
-            width: 100% !important;
+            width: 240px !important; /* Elegant fixed width on mobile */
+            text-align: center;
+            justify-content: center;
           }
           .hero-socials {
             justify-content: center;
             width: 100%;
+            margin-top: 4px;
           }
         }
       `}</style>
