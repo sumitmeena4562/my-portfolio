@@ -8,6 +8,9 @@ const ResumeView = () => {
   const { categories } = resumeData.skills;
   const { experience, projects, education, certifications } = resumeData;
 
+  // Format phone number with spaces for readability
+  const formattedPhone = '+91 62616 52446';
+
   const handlePrint = () => {
     window.print();
   };
@@ -19,7 +22,7 @@ const ResumeView = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: '16px',
+        marginBottom: '20px',
         flexWrap: 'wrap',
         gap: '12px',
       }}>
@@ -40,7 +43,7 @@ const ResumeView = () => {
         <div className="resume-paper" style={{
           backgroundColor: 'var(--bg-secondary)',
           color: 'var(--text-primary)',
-          padding: '24px 30px',
+          padding: '36px 40px', /* Increased horizontal padding */
           borderRadius: 'var(--border-radius)',
           border: '1px solid var(--border-color)',
           boxShadow: 'var(--card-shadow)',
@@ -49,16 +52,16 @@ const ResumeView = () => {
           {/* Resume Header */}
           <div className="resume-header" style={{
             textAlign: 'center',
-            borderBottom: '2px solid var(--text-primary)',
-            paddingBottom: '12px',
-            marginBottom: '12px',
+            borderBottom: '2.5px solid var(--text-primary)', /* Solid thick line */
+            paddingBottom: '14px',
+            marginBottom: '18px',
           }}>
             <h1 style={{
-              fontSize: '1.6rem',
+              fontSize: '1.75rem',
               fontWeight: '800',
               textTransform: 'uppercase',
               letterSpacing: '0.5px',
-              marginBottom: '6px',
+              marginBottom: '8px',
               color: 'var(--text-primary)',
             }}>
               {name}
@@ -69,37 +72,37 @@ const ResumeView = () => {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '10px',
-              fontSize: '0.8rem',
+              gap: '12px',
+              fontSize: '0.82rem',
               color: 'var(--text-secondary)',
             }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <Phone size={10} /> {phone}
+                <Phone size={11} style={{ color: 'var(--primary)' }} /> {formattedPhone}
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <Mail size={10} /> {email}
+                <Mail size={11} style={{ color: 'var(--primary)' }} /> {email}
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <MapPin size={10} /> {location.split(',').slice(0, 3).join(',')}
+                <MapPin size={11} style={{ color: 'var(--primary)' }} /> {location.split(',').slice(0, 3).join(',')}
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <LinkedinIcon size={10} /> {linkedin}
+                <LinkedinIcon size={11} style={{ color: 'var(--primary)' }} /> {linkedin}
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <GithubIcon size={10} /> {github}
+                <GithubIcon size={11} style={{ color: 'var(--primary)' }} /> {github}
               </span>
             </div>
           </div>
 
           {/* About Me Section */}
-          <div style={{ marginBottom: '12px' }}>
+          <div style={{ marginBottom: '18px' }}>
             <h3 className="resume-section-title" style={{
               fontSize: '0.92rem',
               fontWeight: '700',
               textTransform: 'uppercase',
               borderBottom: '1.5px solid var(--text-primary)',
-              paddingBottom: '1px',
-              marginBottom: '4px',
+              paddingBottom: '3px',
+              marginBottom: '8px', /* Increased spacing below title */
               color: 'var(--text-primary)',
             }}>
               About Me
@@ -107,21 +110,21 @@ const ResumeView = () => {
             <p style={{
               fontSize: '0.82rem',
               color: 'var(--text-secondary)',
-              lineHeight: '1.4',
+              lineHeight: '1.45',
             }}>
               {resumeData.personalInfo.aboutMe}
             </p>
           </div>
 
           {/* Skills Section */}
-          <div style={{ marginBottom: '12px' }}>
+          <div style={{ marginBottom: '18px' }}>
             <h3 className="resume-section-title" style={{
               fontSize: '0.92rem',
               fontWeight: '700',
               textTransform: 'uppercase',
               borderBottom: '1.5px solid var(--text-primary)',
-              paddingBottom: '1px',
-              marginBottom: '4px',
+              paddingBottom: '3px',
+              marginBottom: '8px',
               color: 'var(--text-primary)',
             }}>
               Technical Skills
@@ -130,13 +133,13 @@ const ResumeView = () => {
             <div className="skills-print-grid" style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '2px',
+              gap: '4px',
               fontSize: '0.82rem',
               color: 'var(--text-secondary)',
             }}>
               {categories.map((cat, idx) => (
                 <div key={idx} className="skills-print-category">
-                  <strong>{cat.title.split(' ')[0]}: </strong>
+                  <strong style={{ color: 'var(--text-primary)' }}>{cat.title}: </strong>
                   {cat.skills.join(', ')}
                 </div>
               ))}
@@ -144,21 +147,21 @@ const ResumeView = () => {
           </div>
 
           {/* Work Experience Section */}
-          <div style={{ marginBottom: '12px' }}>
+          <div style={{ marginBottom: '18px' }}>
             <h3 className="resume-section-title" style={{
               fontSize: '0.92rem',
               fontWeight: '700',
               textTransform: 'uppercase',
               borderBottom: '1.5px solid var(--text-primary)',
-              paddingBottom: '1px',
-              marginBottom: '4px',
+              paddingBottom: '3px',
+              marginBottom: '8px',
               color: 'var(--text-primary)',
             }}>
               Work Experience
             </h3>
 
             {experience.map((exp, idx) => (
-              <div key={idx} className="resume-item" style={{ marginBottom: idx < experience.length - 1 ? '10px' : '0' }}>
+              <div key={idx} className="resume-item" style={{ marginBottom: idx < experience.length - 1 ? '12px' : '0' }}>
                 <div className="resume-item-header" style={{
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -176,7 +179,7 @@ const ResumeView = () => {
                   fontSize: '0.8rem',
                   color: 'var(--primary)',
                   fontWeight: '600',
-                  marginBottom: '2px',
+                  marginBottom: '6px',
                 }}>
                   <span>{exp.company}</span>
                   <span>{exp.location}</span>
@@ -186,10 +189,11 @@ const ResumeView = () => {
                   paddingLeft: '14px',
                   fontSize: '0.8rem',
                   color: 'var(--text-secondary)',
-                  lineHeight: '1.35',
+                  lineHeight: '1.4',
+                  marginTop: '4px',
                 }}>
                   {exp.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx}>{bullet}</li>
+                    <li key={bIdx} style={{ marginBottom: '2px' }}>{bullet}</li>
                   ))}
                 </ul>
               </div>
@@ -197,41 +201,50 @@ const ResumeView = () => {
           </div>
 
           {/* Projects Section */}
-          <div style={{ marginBottom: '12px' }}>
+          <div style={{ marginBottom: '18px' }}>
             <h3 className="resume-section-title" style={{
               fontSize: '0.92rem',
               fontWeight: '700',
               textTransform: 'uppercase',
               borderBottom: '1.5px solid var(--text-primary)',
-              paddingBottom: '1px',
-              marginBottom: '4px',
+              paddingBottom: '3px',
+              marginBottom: '8px',
               color: 'var(--text-primary)',
             }}>
               Projects
             </h3>
 
             {projects.map((proj, idx) => (
-              <div key={idx} className="resume-item" style={{ marginBottom: idx < projects.length - 1 ? '8px' : '0' }}>
+              <div key={idx} className="resume-item" style={{ marginBottom: idx < projects.length - 1 ? '12px' : '0' }}>
+                {/* Clean Project Header (Single Row for Name) */}
                 <div className="resume-item-header" style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
                   fontWeight: '700',
                   fontSize: '0.85rem',
                   color: 'var(--text-primary)',
+                  marginBottom: '2px',
                 }}>
-                  <span>{proj.title}</span>
-                  <span style={{ fontSize: '0.75rem', fontWeight: '500', color: 'var(--text-muted)' }}>
-                    {proj.tech.join(', ')}
-                  </span>
+                  {proj.title}
                 </div>
+                
+                {/* Tech Stack on a separate line below Title */}
+                <div className="resume-item-sub" style={{
+                  fontSize: '0.78rem',
+                  fontStyle: 'italic',
+                  color: 'var(--text-muted)',
+                  fontWeight: '500',
+                  marginBottom: '4px',
+                }}>
+                  Technologies: {proj.tech.join(', ')}
+                </div>
+
                 <ul className="resume-item-bullets" style={{
                   paddingLeft: '14px',
                   fontSize: '0.8rem',
                   color: 'var(--text-secondary)',
-                  lineHeight: '1.35',
+                  lineHeight: '1.4',
                 }}>
                   {proj.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx}>{bullet}</li>
+                    <li key={bIdx} style={{ marginBottom: '2px' }}>{bullet}</li>
                   ))}
                 </ul>
               </div>
@@ -242,7 +255,7 @@ const ResumeView = () => {
           <div className="resume-edu-cert-grid" style={{
             display: 'grid',
             gridTemplateColumns: '1.2fr 1fr',
-            gap: '20px',
+            gap: '24px',
           }}>
             <div>
               <h3 className="resume-section-title" style={{
@@ -250,14 +263,14 @@ const ResumeView = () => {
                 fontWeight: '700',
                 textTransform: 'uppercase',
                 borderBottom: '1.5px solid var(--text-primary)',
-                paddingBottom: '1px',
-                marginBottom: '4px',
+                paddingBottom: '3px',
+                marginBottom: '8px',
                 color: 'var(--text-primary)',
               }}>
                 Education
               </h3>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.8rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.8rem' }}>
                 {education.map((edu, idx) => (
                   <div key={idx}>
                     <div style={{ fontWeight: '700', color: 'var(--text-primary)' }}>
@@ -277,8 +290,8 @@ const ResumeView = () => {
                 fontWeight: '700',
                 textTransform: 'uppercase',
                 borderBottom: '1.5px solid var(--text-primary)',
-                paddingBottom: '1px',
-                marginBottom: '4px',
+                paddingBottom: '3px',
+                marginBottom: '8px',
                 color: 'var(--text-primary)',
               }}>
                 Certifications
@@ -288,10 +301,10 @@ const ResumeView = () => {
                 paddingLeft: '14px',
                 fontSize: '0.8rem',
                 color: 'var(--text-secondary)',
-                lineHeight: '1.35',
+                lineHeight: '1.4',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '2px',
+                gap: '4px',
               }}>
                 {certifications.map((cert, idx) => (
                   <li key={idx}>{cert}</li>
@@ -306,7 +319,7 @@ const ResumeView = () => {
       <style>{`
         @media (max-width: 600px) {
           .resume-paper {
-            padding: 16px 16px !important;
+            padding: 24px 20px !important;
           }
           .resume-contact-info {
             flex-direction: column !important;
@@ -315,7 +328,7 @@ const ResumeView = () => {
           }
           .resume-edu-cert-grid {
             grid-template-columns: 1fr !important;
-            gap: 12px !important;
+            gap: 16px !important;
           }
           .resume-trigger-header {
             flex-direction: column !important;
