@@ -12,7 +12,7 @@ const Projects = () => {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', /* Compact min size */
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
         gap: '16px',
       }}>
         {projects.map((proj, idx) => (
@@ -76,13 +76,13 @@ const Projects = () => {
                   <span 
                     key={tIdx} 
                     style={{
-                      fontSize: '0.68rem',
+                      fontSize: '0.72rem',
                       fontWeight: '600',
-                      color: 'var(--primary)',
-                      border: '1px solid var(--primary)',
-                      backgroundColor: 'var(--primary-light)',
-                      padding: '1px 6px',
-                      borderRadius: '3px',
+                      color: 'var(--text-muted)',
+                      backgroundColor: 'var(--bg-primary)',
+                      padding: '2px 6px',
+                      borderRadius: '4px',
+                      border: '1px solid var(--border-color)', /* Matched Experience tag styling */
                     }}
                   >
                     {t}
