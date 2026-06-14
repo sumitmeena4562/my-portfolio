@@ -15,7 +15,7 @@
   
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --transition-smooth: all 0.2s ease;
-  --border-radius: 6px;      /* Slightly sharper corners */
+  --border-radius: 6px;
 }
 
 [data-theme="dark"] {
@@ -43,8 +43,8 @@ body {
   font-family: var(--font-family);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-size: 0.9rem;          /* Compact standard text */
-  line-height: 1.5;           /* Tighter line height */
+  font-size: 0.9rem;          /* Standard text size */
+  line-height: 1.5;
   overflow-x: hidden;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -67,7 +67,7 @@ button, input, textarea {
   transition: var(--transition-smooth);
 }
 
-/* Page animations - kept subtle and quick */
+/* Page animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
@@ -86,14 +86,14 @@ button, input, textarea {
 
 .main-content {
   flex-grow: 1;
-  max-width: 850px;  /* Compact page width */
+  max-width: 850px;
   width: 100%;
   margin: 0 auto;
   padding: 0 16px;
 }
 
 section {
-  padding: 50px 0 15px; /* Compact padding */
+  padding: 48px 0 16px; /* Compact consistent vertical spacing */
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -102,10 +102,10 @@ section:last-of-type {
 }
 
 .section-title {
-  font-size: 1.35rem;  /* Compact header */
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 20px; /* Reduced margin */
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -129,14 +129,16 @@ section:last-of-type {
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 8px 16px;  /* Compact buttons */
+  padding: 8px 16px;
   border-radius: 4px;
   font-weight: 600;
   font-size: 0.85rem;
   cursor: pointer;
   transition: var(--transition-smooth);
   border: 1px solid transparent;
+  white-space: nowrap;
 }
 
 .btn-primary {
@@ -162,6 +164,36 @@ section:last-of-type {
 .resume-preview-container {
   width: 100%;
   margin: 0 auto;
+  overflow-x: auto; /* Allow scrolling on small screens if resume paper min-width triggers */
+}
+
+/* RESPONSIVE MEDIA QUERIES FOR LAYOUT COMPACTNESS AND ALIGNMENT */
+
+@media (max-width: 800px) {
+  section {
+    padding: 36px 0 12px; /* Tighter padding for tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 0.88rem; /* Slightly smaller text for mobile */
+  }
+  
+  section {
+    padding: 28px 0 10px; /* Tighter padding for mobile */
+  }
+
+  .btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    width: 100%; /* Full-width buttons on mobile */
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
 }
 
 /* PRINT MEDIA STYLES - CRITICAL FOR PDF GENERATION */
@@ -169,7 +201,7 @@ section:last-of-type {
   body {
     background-color: #ffffff !important;
     color: #000000 !important;
-    font-size: 9.5pt !important;    /* Tight fit */
+    font-size: 9.5pt !important;
     font-family: 'Inter', sans-serif !important;
     line-height: 1.35 !important;
   }

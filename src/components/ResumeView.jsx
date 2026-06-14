@@ -13,9 +13,9 @@ const ResumeView = () => {
   };
 
   return (
-    <section id="resume">
+    <section id="resume" className="resume-section-web">
       {/* Web view header and download trigger */}
-      <div className="no-print" style={{
+      <div className="no-print resume-trigger-header" style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -30,7 +30,7 @@ const ResumeView = () => {
           </p>
         </div>
         
-        <button onClick={handlePrint} className="btn btn-primary">
+        <button onClick={handlePrint} className="btn btn-primary resume-print-btn">
           <Download size={14} /> Print / Save as PDF
         </button>
       </div>
@@ -40,7 +40,7 @@ const ResumeView = () => {
         <div className="resume-paper" style={{
           backgroundColor: 'var(--bg-secondary)',
           color: 'var(--text-primary)',
-          padding: '24px 30px', /* Compact preview padding */
+          padding: '24px 30px',
           borderRadius: 'var(--border-radius)',
           border: '1px solid var(--border-color)',
           boxShadow: 'var(--card-shadow)',
@@ -239,7 +239,7 @@ const ResumeView = () => {
           </div>
 
           {/* Education & Certifications Section */}
-          <div style={{
+          <div className="resume-edu-cert-grid" style={{
             display: 'grid',
             gridTemplateColumns: '1.2fr 1fr',
             gap: '20px',
@@ -306,16 +306,24 @@ const ResumeView = () => {
       <style>{`
         @media (max-width: 600px) {
           .resume-paper {
-            padding: 16px 20px !important;
+            padding: 16px 16px !important;
           }
           .resume-contact-info {
             flex-direction: column !important;
             align-items: center !important;
             gap: 4px !important;
           }
-          #resume > div.resume-preview-container > div > div:nth-child(6) {
+          .resume-edu-cert-grid {
             grid-template-columns: 1fr !important;
             gap: 12px !important;
+          }
+          .resume-trigger-header {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
+          }
+          .resume-print-btn {
+            width: 100% !important;
           }
         }
       `}</style>

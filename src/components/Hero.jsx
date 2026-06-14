@@ -7,11 +7,11 @@ const Hero = () => {
   const { name, title, aboutMe, githubUrl, linkedinUrl, email, location } = resumeData.personalInfo;
   
   return (
-    <section id="home" className="animate-fade-in" style={{
+    <section id="home" className="animate-fade-in hero-container" style={{
       paddingTop: '80px',
       paddingBottom: '20px',
     }}>
-      <div style={{
+      <div className="hero-grid" style={{
         display: 'grid',
         gridTemplateColumns: '1.2fr 0.8fr',
         gap: '24px',
@@ -20,7 +20,7 @@ const Hero = () => {
       }}>
         {/* Left Column: Heading and Details */}
         <div>
-          <h1 style={{
+          <h1 className="hero-name" style={{
             fontSize: '2.25rem',
             fontWeight: '800',
             lineHeight: '1.15',
@@ -30,7 +30,7 @@ const Hero = () => {
             {name}
           </h1>
           
-          <h2 style={{
+          <h2 className="hero-title" style={{
             fontSize: '1.2rem',
             fontWeight: '600',
             color: 'var(--primary)',
@@ -39,7 +39,7 @@ const Hero = () => {
             {title}
           </h2>
 
-          <p style={{
+          <p className="hero-desc" style={{
             fontSize: '0.92rem',
             color: 'var(--text-secondary)',
             lineHeight: '1.5',
@@ -50,13 +50,17 @@ const Hero = () => {
           </p>
 
           {/* Actions & Socials inline */}
-          <div style={{
+          <div className="hero-actions-container" style={{
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
             gap: '16px',
           }}>
-            <div style={{ display: 'flex', gap: '8px' }}>
+            <div className="hero-buttons" style={{ 
+              display: 'flex', 
+              gap: '8px',
+              flexWrap: 'wrap',
+            }}>
               <a href="#resume" className="btn btn-primary">
                 <FileText size={14} /> View Resume
               </a>
@@ -66,12 +70,10 @@ const Hero = () => {
             </div>
 
             {/* Vertically centered social list */}
-            <div style={{
+            <div className="hero-socials" style={{
               display: 'flex',
               alignItems: 'center',
               gap: '12px',
-              borderLeft: '1px solid var(--border-color)',
-              paddingLeft: '16px',
             }}>
               <a href={githubUrl} target="_blank" rel="noopener noreferrer" style={{
                 color: 'var(--text-muted)',
@@ -98,10 +100,11 @@ const Hero = () => {
         </div>
 
         {/* Right Column: Focus Areas / High-level stats */}
-        <div className="glass-panel" style={{
+        <div className="hero-card glass-panel" style={{
           padding: '16px 20px',
           backgroundColor: 'var(--bg-secondary)',
           border: '1px solid var(--border-color)',
+          width: '100%',
         }}>
           <h3 style={{
             fontSize: '0.95rem',
@@ -138,10 +141,48 @@ const Hero = () => {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          #home > div {
+        @media (max-width: 800px) {
+          .hero-grid {
             grid-template-columns: 1fr !important;
             gap: 20px !important;
+          }
+          .hero-socials {
+            border-left: none !important;
+            padding-left: 0 !important;
+          }
+        }
+        @media (max-width: 576px) {
+          .hero-name {
+            font-size: 1.85rem !important;
+            text-align: center;
+          }
+          .hero-title {
+            font-size: 1.05rem !important;
+            text-align: center;
+            margin-bottom: 12px !important;
+          }
+          .hero-desc {
+            text-align: center;
+            margin-bottom: 16px !important;
+          }
+          .hero-actions-container {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 12px !important;
+            width: 100%;
+          }
+          .hero-buttons {
+            width: 100%;
+            flex-direction: column !important;
+            gap: 8px !important;
+          }
+          .hero-buttons a {
+            width: 100% !important;
+          }
+          .hero-socials {
+            justify-content: center;
+            margin-top: 4px;
+            width: 100%;
           }
         }
       `}</style>

@@ -10,7 +10,7 @@ const About = () => {
     <section id="about" className="no-print">
       <h2 className="section-title">About & Education</h2>
       
-      <div style={{
+      <div className="about-grid" style={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
         gap: '24px',
@@ -65,6 +65,8 @@ const About = () => {
                   justifyContent: 'space-between',
                   alignItems: 'baseline',
                   marginBottom: '4px',
+                  flexWrap: 'wrap',
+                  gap: '4px',
                 }}>
                   <h4 style={{
                     fontSize: '0.92rem',
@@ -80,6 +82,7 @@ const About = () => {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '4px',
+                    whiteSpace: 'nowrap',
                   }}>
                     <Calendar size={10} /> {edu.year.split(': ')[1]}
                   </span>
@@ -106,8 +109,8 @@ const About = () => {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          #about > div {
+        @media (max-width: 800px) {
+          .about-grid {
             grid-template-columns: 1fr !important;
             gap: 20px !important;
           }

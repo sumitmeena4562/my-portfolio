@@ -9,7 +9,7 @@ const Skills = () => {
     <section id="skills" className="no-print">
       <h2 className="section-title">Skills & Certifications</h2>
 
-      <div style={{
+      <div className="skills-grid" style={{
         display: 'grid',
         gridTemplateColumns: '1.2fr 0.8fr',
         gap: '24px',
@@ -105,8 +105,8 @@ const Skills = () => {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          #skills > div {
+        @media (max-width: 800px) {
+          .skills-grid {
             grid-template-columns: 1fr !important;
             gap: 20px !important;
           }
