@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 const Navbar = ({ theme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,14 +37,13 @@ const Navbar = ({ theme, toggleTheme }) => {
         justifyContent: 'space-between',
         padding: '0 20px',
       }}>
-        {/* Brand */}
-        <a href="#home" style={{
-          fontSize: '1.15rem',
-          fontWeight: '700',
-          color: 'var(--text-primary)',
-          letterSpacing: '0.5px',
+        {/* Brand Logo */}
+        <a href="#home" className="nav-logo-link" style={{
+          textDecoration: 'none',
+          display: 'flex',
+          alignItems: 'center',
         }}>
-          SUMIT MEENA
+          <Logo />
         </a>
 
         {/* Desktop Links */}
@@ -158,8 +158,11 @@ const Navbar = ({ theme, toggleTheme }) => {
         </div>
       )}
 
-      {/* CSS style block for responsive menu */}
+      {/* CSS style block for responsive menu and logo hover */}
       <style>{`
+        .nav-logo-link:hover .logo-svg {
+          transform: scale(1.06) rotate(3deg);
+        }
         @media (max-width: 768px) {
           .desktop-menu {
             display: none !important; /* Hide the entire container instead of just ul */
