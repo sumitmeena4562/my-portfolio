@@ -78,6 +78,7 @@ export const resumeData = {
         'Integrated frontend components with back-end APIs for seamless real-time data handling.',
       ],
       github: 'https://github.com/sumitmeena4562',
+      demo: 'https://aaqms-fe-roan.vercel.app/',
     },
     {
       title: 'AgriConnect',

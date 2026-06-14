@@ -114,18 +114,20 @@ const Projects = () => {
                 >
                   <GithubIcon size={12} /> Repository
                 </a>
-                <a 
-                  href={proj.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  style={{
-                    color: 'var(--text-muted)',
-                  }}
-                  onMouseEnter={(e) => e.target.style.color = 'var(--primary)'}
-                  onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}
-                >
-                  <ExternalLink size={12} />
-                </a>
+                {proj.demo && (
+                  <a 
+                    href={proj.demo} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    style={{
+                      color: 'var(--text-muted)',
+                    }}
+                    onMouseEnter={(e) => e.target.style.color = 'var(--primary)'}
+                    onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}
+                  >
+                    <ExternalLink size={12} />
+                  </a>
+                )}
               </div>
             </div>
           </div>
