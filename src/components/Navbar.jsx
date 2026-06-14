@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 
 const Navbar = ({ theme, toggleTheme }) => {
@@ -29,7 +29,7 @@ const Navbar = ({ theme, toggleTheme }) => {
       zIndex: 1000,
     }}>
       <div style={{
-        maxWidth: '1000px',
+        maxWidth: '850px', /* Matched main content max-width */
         width: '100%',
         display: 'flex',
         alignItems: 'center',
@@ -38,7 +38,7 @@ const Navbar = ({ theme, toggleTheme }) => {
       }}>
         {/* Brand */}
         <a href="#home" style={{
-          fontSize: '1.25rem',
+          fontSize: '1.15rem',
           fontWeight: '700',
           color: 'var(--text-primary)',
           letterSpacing: '0.5px',
@@ -78,6 +78,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           {/* Theme Toggle Button */}
           <button onClick={toggleTheme} style={{
             background: 'none',
+            border: 'none',
             cursor: 'pointer',
             padding: '6px',
             borderRadius: '4px',
@@ -98,6 +99,7 @@ const Navbar = ({ theme, toggleTheme }) => {
         <div className="mobile-menu-btn" style={{ display: 'none', alignItems: 'center', gap: '12px' }}>
           <button onClick={toggleTheme} style={{
             background: 'none',
+            border: 'none',
             cursor: 'pointer',
             padding: '6px',
             borderRadius: '4px',
@@ -159,8 +161,8 @@ const Navbar = ({ theme, toggleTheme }) => {
       {/* CSS style block for responsive menu */}
       <style>{`
         @media (max-width: 768px) {
-          .desktop-menu ul {
-            display: none !important;
+          .desktop-menu {
+            display: none !important; /* Hide the entire container instead of just ul */
           }
           .mobile-menu-btn {
             display: flex !important;
