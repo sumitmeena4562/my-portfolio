@@ -1,4 +1,3 @@
-import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { GithubIcon } from './BrandIcons';
 import { resumeData } from '../data/resumeData';

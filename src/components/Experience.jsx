@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calendar, MapPin } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 

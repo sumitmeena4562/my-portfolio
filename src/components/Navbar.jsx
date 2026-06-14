@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 
 const Navbar = ({ theme, toggleTheme }) => {
@@ -78,7 +78,6 @@ const Navbar = ({ theme, toggleTheme }) => {
           {/* Theme Toggle Button */}
           <button onClick={toggleTheme} style={{
             background: 'none',
-            border: 'none',
             cursor: 'pointer',
             padding: '6px',
             borderRadius: '4px',
@@ -99,7 +98,6 @@ const Navbar = ({ theme, toggleTheme }) => {
         <div className="mobile-menu-btn" style={{ display: 'none', alignItems: 'center', gap: '12px' }}>
           <button onClick={toggleTheme} style={{
             background: 'none',
-            border: 'none',
             cursor: 'pointer',
             padding: '6px',
             borderRadius: '4px',

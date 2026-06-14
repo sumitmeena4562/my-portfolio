@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,14 +10,13 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
 
   useEffect(() => {
-    // Read from localStorage if exists, default to dark
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
-  }, []);
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';

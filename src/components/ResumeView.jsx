@@ -1,10 +1,9 @@
-import React from 'react';
 import { Download, Mail, Phone, MapPin } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
 import { resumeData } from '../data/resumeData';
 
 const ResumeView = () => {
-  const { name, phone, email, location, linkedin, github } = resumeData.personalInfo;
+  const { name, email, location, linkedin, github } = resumeData.personalInfo;
   const { categories } = resumeData.skills;
   const { experience, projects, education, certifications } = resumeData;
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
 import { resumeData } from '../data/resumeData';
